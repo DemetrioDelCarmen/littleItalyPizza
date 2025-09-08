@@ -1,103 +1,85 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { motion } from "framer-motion";
+import Link from 'next/link';
+
+// Variants para las animaciones
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.8 } },
+};
+
+const buttonVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
+};
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="relative h-screen flex items-center justify-center">
+      {/* Background and overlay */}
+      <div className="absolute inset-0 bg-center bg-cover bg-[url(https://rayrtuqztdc8phcw.public.blob.vercel-storage.com/littleItaly/chad-montano-MqT0asuoIcU-unsplash.jpg)]"></div>
+      <div className="absolute inset-0 bg-stone-900 opacity-70"></div> {/* Oscurece la imagen para que el texto resalte */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+      {/* Main content, now animated */}
+      <motion.div
+        className="border  p-6 relative z-10 text-white text-center flex flex-col items-center justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="my-12">
+          <img className='object-contain w-[180px] h-[180px] shadow-2xl' src="https://rayrtuqztdc8phcw.public.blob.vercel-storage.com/littleItaly/logo-italy-pizza.jpg" alt="Pizzeria Logo" />
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-2">
+            Taste the Tradition
+          </h2>
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <p className="text-lg md:text-xl text-stone-200 max-w-2xl mx-auto mb-8">
+            Freshly made, every single time.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-4"
+          variants={containerVariants}
+        >
+          {/* Botón Order Here */}
+          <motion.a
+            href="https://slicelife.com/restaurants/pa/new-oxford/17350/little-italy-iv/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=littleitalyivpizza.com"
             target="_blank"
-            rel="noopener noreferrer"
+            className="bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg shadow-md hover:bg-green-700 transition-colors focus:outline-none"
+            variants={buttonVariants}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Order Here
+          </motion.a>
+
+          {/* Botón View Menu */}
+          <motion.a
+
+            href="/menu"
+            className="bg-white text-stone-900 font-bold py-3 px-8 rounded-full text-lg shadow-md hover:bg-stone-200 transition-colors focus:outline-none focus:ring-2 focus:ring-stone-300 focus:ring-opacity-75"
+            variants={buttonVariants}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            View Menu
+          </motion.a>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
