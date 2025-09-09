@@ -859,3 +859,59 @@ export const LUNCH_SPECIAL = [
         image: "/images/lunch-special/lunch-special.jpg"
     }
 ];
+
+
+
+// Función para obtener datos por categoría
+export function getCategoryData(category) {
+    switch (category) {
+        case 'pizzas': return PIZZAS;
+        case 'specialty-pizzas': return SPECIALTY_PIZZAS;
+        case 'appetizers': return APPETIZERS;
+        case 'salads': return SALADS;
+        case 'wings': return WINGS;
+        case 'calzones-strombolis': return CALZONES_STROMBOLIS;
+        case 'sandwiches-subs': return [...SANDWICHES, ...COLD_SUBS, ...HOT_SUBS, ...OVEN_BAKED_SUBS];
+        case 'pasta-dinners': return PASTA_DINNERS;
+        case 'dinners': return [...BAKED_DINNERS, ...PARMIGIANA_DINNERS, ...SPECIALTY_DINNERS, ...PLATTERS];
+        case 'desserts': return DESSERTS;
+        case 'beverages': return BEVERAGES;
+        default: return null;
+    }
+}
+
+// Función para obtener títulos de categoría
+export function getCategoryTitle(category) {
+    const titles = {
+        'pizzas': 'Pizzas',
+        'specialty-pizzas': 'Specialty Pizzas',
+        'appetizers': 'Appetizers',
+        'salads': 'Salads',
+        'wings': 'Wings',
+        'calzones-strombolis': 'Calzones & Strombolis',
+        'sandwiches-subs': 'Sandwiches & Subs',
+        'pasta-dinners': 'Pasta Dinners',
+        'dinners': 'Dinners',
+        'desserts': 'Desserts',
+        'beverages': 'Beverages'
+    };
+    return titles[category] || 'Menu Category';
+}
+
+// Función para obtener descripciones de categoría
+export function getCategoryDescription(category) {
+    const descriptions = {
+        'pizzas': 'Hand-tossed dough, homemade sauce, and fresh ingredients',
+        'specialty-pizzas': 'Our signature creations for the ultimate pizza experience',
+        'appetizers': 'Start your meal with these delicious beginnings',
+        'salads': 'Fresh greens with your favorite dressings',
+        'wings': 'Crispy wings with your choice of sauce',
+        'calzones-strombolis': 'Baked, folded dough stuffed with delicious fillings',
+        'sandwiches-subs': 'Freshly made sandwiches on brioche rolls',
+        'pasta-dinners': 'Classic Italian pasta dishes served with salad and bread',
+        'dinners': 'Complete meals including baked and specialty dinners',
+        'desserts': 'Sweet endings to your Italian feast',
+        'beverages': 'Refreshments to complement your meal'
+    };
+    return descriptions[category] || '';
+}
