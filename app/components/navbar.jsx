@@ -35,8 +35,7 @@ const Navbar = () => {
             ]
         },
         { name: 'About', href: '/about' },
-        { name: 'Gallery', href: '/gallery' },
-        { name: 'Contact', href: '/contact' },
+        { name: 'Gallery', href: '/gallery' }
     ];
 
     const menuVariants = {

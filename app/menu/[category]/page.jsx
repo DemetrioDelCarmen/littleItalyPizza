@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation';
 import {
     getCategoryData,
     getCategoryTitle,
-    getCategoryDescription
+    getCategoryDescription,
+    getCategoryImage
 } from '../menu-data';
 import MenuSection from '@/app/components/menuSection';
 
@@ -21,7 +22,7 @@ export default function CategoryPage({ params }) {
     const category = params.category;
     const categoryData = getCategoryData(category);
     const categoryTitle = getCategoryTitle(category);
-
+    const image = getCategoryImage(category)
     if (!categoryData) {
         notFound();
     }
@@ -33,7 +34,7 @@ export default function CategoryPage({ params }) {
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: "url('https://rayrtuqztdc8phcw.public.blob.vercel-storage.com/littleItaly/category-hero.jpg')"
+                        backgroundImage: `url('${image}')`
                     }}
                 >
                     <div className="absolute inset-0 bg-black/40"></div>
