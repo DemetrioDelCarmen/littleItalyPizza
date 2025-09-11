@@ -129,15 +129,16 @@ export default function HomePage() {
           >
             <Link
               href="/menu"
-              className="text-white px-8 py-4 bg-terracotta text-ivory font-light hover:bg-terracotta/90 transition-colors duration-300 text-lg"
+              className="border text-white px-8 py-4 bg-terracotta text-ivory font-light hover:bg-terracotta/90 transition-colors duration-300 text-lg"
             >
               View Our Menu
             </Link>
             <Link
-              href="/reservations"
-              className="text-white px-8 py-4 border border-ivory text-ivory font-light hover:bg-ivory hover:text-charcoal transition-colors duration-300 text-lg"
+              target='_blank'
+              href="https://slicelife.com/restaurants/pa/new-oxford/17350/little-italy-iv/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=littleitalyivpizza.com"
+              className="bg-white text-black px-8 py-4 border border-ivory text-ivory font-light hover:bg-ivory hover:text-charcoal transition-colors duration-300 text-lg"
             >
-              Make Reservation
+              Order now
             </Link>
           </motion.div>
         </div>
@@ -385,7 +386,8 @@ export default function HomePage() {
               Call to Order
             </a>
             <Link
-              href="/contact"
+              target='_blank'
+              href="https://maps.app.goo.gl/zzGk8QSPdCzzQf356"
               className="px-8 py-4 border border-ivory text-ivory font-light hover:bg-ivory hover:text-terracotta transition-colors duration-300 text-lg"
             >
               Get Directions
@@ -450,7 +452,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052.234567890123!2d-77.0566!3d39.8635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDUxJzQ4LjYiTiA3N8KwMDMnMjMuNyJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3059.5234803152966!2d-77.0570386!3d39.9296789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c8f8f57ac387ff%3A0x51a77db287056db2!2sLittle%20Italy%20IV!5e0!3m2!1sen!2smx!4v1757559680478!5m2!1sen!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}

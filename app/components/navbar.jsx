@@ -221,7 +221,8 @@ const Navbar = () => {
                             whileTap={{ scale: 0.95 }}
                         >
                             <a
-                                href="tel:7176246280"
+                                target='_blank'
+                                href="https://slicelife.com/restaurants/pa/new-oxford/17350/little-italy-iv/menu?utm_campaign=order_now_button&utm_medium=referral&utm_source=littleitalyivpizza.com"
                                 className="px-5 py-2.5 text-sm bg-terracotta text-ivory font-light tracking-wider hover:bg-terracotta/90 transition-colors duration-300 rounded-full"
                             >
                                 Order Now
