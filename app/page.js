@@ -255,7 +255,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
-                image: "https://videos.openai.com/vg-assets/assets%2Ftask_01k4pq3yhxe8w85yhnr9phsp44%2F1757404147_img_0.webp?st=2025-09-09T06%3A33%3A05Z&se=2025-09-15T07%3A33%3A05Z&sks=b&skt=2025-09-09T06%3A33%3A05Z&ske=2025-09-15T07%3A33%3A05Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=TqZhT6PIvGqj6iod6tlgdsiXXSMdmbm49h3PHy8vmjo%3D&az=oaivgprodscus",
+                image: "https://rayrtuqztdc8phcw.public.blob.vercel-storage.com/littleItaly/menu/20250909_0153_Gourmet%20Pizza%20Creations_simple_compose_01k4pqbxb1ez09xebfcvb25pwf.png",
                 title: "Specialty Pizzas",
                 description: "Handcrafted pizzas with unique flavor combinations"
               },

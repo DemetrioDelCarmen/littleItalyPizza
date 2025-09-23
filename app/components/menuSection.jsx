@@ -48,10 +48,57 @@ const MenuSection = ({ title, items, description }) => {
                                     </p>
                                 )}
                             </div>
+
                             {item.price && (
                                 <div className="text-right">
+                                    <div>
+                                        <span className="text-xs font-serif text-terracotta">starting at</span>
+                                    </div>
                                     <span className="text-xl font-serif text-terracotta">
-                                        ${item.price}
+                                        {item.price}
+                                    </span>
+                                </div>
+                            )}
+                            {item.smallPrice && (
+                                <div className="text-right">
+                                    <div>
+                                        <span className="text-xs font-serif text-terracotta">Small</span>
+                                    </div>
+                                    <span className="text-xl font-serif text-terracotta">
+                                        {item.price}
+                                    </span>
+                                </div>
+                            )}
+
+                            {item.priceMed && (
+                                <div className="text-right">
+                                    <div>
+                                        <span className="text-xs font-serif text-terracotta">Medium</span>
+                                    </div>
+                                    <span className="text-xl font-serif text-terracotta">
+                                        {item.priceMed}
+                                    </span>
+                                </div>
+                            )}
+
+                            {item.priceLarge && (
+                                <div className="text-right">
+                                    <div>
+                                        <span className="text-xs font-serif text-terracotta">Large</span>
+                                    </div>
+                                    <span className="text-xl font-serif text-terracotta">
+                                        {item.priceLarge}
+                                    </span>
+                                </div>
+                            )}
+
+                            {item.sicilian && (
+                                <div className="text-right">
+                                    <div>
+                                        <span className="text-xs font-serif text-terracotta">Sicilian</span>
+                                    </div>
+                                    <span className="text-xl font-serif text-terracotta">
+                                        {item.sicilian}
                                     </span>
                                 </div>
                             )}
