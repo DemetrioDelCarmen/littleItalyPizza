@@ -1,5 +1,5 @@
 // components/MenuSection.jsx
-"use client"
+"use client";
 import { motion } from "framer-motion";
 
 const MenuSection = ({ title, items, description }) => {
@@ -13,7 +13,8 @@ const MenuSection = ({ title, items, description }) => {
             <motion.div
                 className="text-center mb-10"
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
             >
                 <h2 className="text-3xl md:text-4xl font-serif font-normal text-charcoal mb-4">
@@ -34,7 +35,8 @@ const MenuSection = ({ title, items, description }) => {
                         className="p-6 bg-white rounded-lg border border-charcoal/10 shadow-sm hover:shadow-md transition-shadow duration-300"
                         variants={itemVariants}
                         initial="hidden"
-                        animate="visible"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{ delay: index * 0.1 }}
                     >
                         <div className="flex justify-between items-start gap-4">
@@ -48,73 +50,69 @@ const MenuSection = ({ title, items, description }) => {
                                     </p>
                                 )}
                             </div>
-
-                            {item.price && (
-                                <div className="text-right">
-                                    <div>
-                                        <span className="text-xs font-serif text-terracotta">starting at</span>
-                                    </div>
-                                    <span className="text-xl font-serif text-terracotta">
-                                        {item.price}
-                                    </span>
-                                </div>
-                            )}
-                            {item.smallPrice && (
-                                <div className="text-right">
-                                    <div>
-                                        <span className="text-xs font-serif text-terracotta">Small</span>
-                                    </div>
-                                    <span className="text-xl font-serif text-terracotta">
-                                        {item.price}
-                                    </span>
-                                </div>
-                            )}
-
-                            {item.priceMed && (
-                                <div className="text-right">
-                                    <div>
-                                        <span className="text-xs font-serif text-terracotta">Medium</span>
-                                    </div>
-                                    <span className="text-xl font-serif text-terracotta">
-                                        {item.priceMed}
-                                    </span>
-                                </div>
-                            )}
-
-                            {item.priceLarge && (
-                                <div className="text-right">
-                                    <div>
-                                        <span className="text-xs font-serif text-terracotta">Large</span>
-                                    </div>
-                                    <span className="text-xl font-serif text-terracotta">
-                                        {item.priceLarge}
-                                    </span>
-                                </div>
-                            )}
-
-                            {item.sicilian && (
-                                <div className="text-right">
-                                    <div>
-                                        <span className="text-xs font-serif text-terracotta">Sicilian</span>
-                                    </div>
-                                    <span className="text-xl font-serif text-terracotta">
-                                        {item.sicilian}
-                                    </span>
-                                </div>
-                            )}
                         </div>
 
-                        {item.variations && (
+                        {/* Renderizar precios de pizzas por tamaño */}
+                        {item.sizes && (
                             <div className="mt-4 pt-4 border-t border-charcoal/5">
-                                <div className="grid gap-3">
-                                    {item.variations.map((variation, idx) => (
-                                        <div key={idx} className="flex justify-between items-center">
-                                            <span className="text-charcoal/80 font-light">
-                                                {variation.size}
-                                            </span>
-                                            <span className="text-charcoal font-medium">
-                                                ${variation.price}
-                                            </span>
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    {item.sizes.map((size) => (
+                                        <div key={size.name} className="flex flex-col items-start">
+                                            <span className="text-sm font-serif text-terracotta/70">{size.name}</span>
+                                            <span className="text-base font-bold text-terracotta">{size.price}</span>
+                                            <span className="text-xs text-charcoal/50">{size.dimension}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* --- AQUI ESTA LA PARTE MEJORADA DE TOPPINGS --- */}
+                                {item.toppings && (
+                                    <div className="mt-6 text-sm">
+                                        <h4 className="font-bold text-charcoal mb-2">Toppings Extras</h4>
+                                        <p className="font-light text-charcoal/80 leading-relaxed mb-4">
+                                            {item.toppings.list}
+                                        </p>
+
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            {/* Extra Topping */}
+                                            <div>
+                                                <span className="font-semibold text-charcoal">Extra Topping:</span>
+                                                <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                                                    {Object.entries(item.toppings.extra).map(([size, price]) => (
+                                                        <div key={size} className="flex gap-1 items-baseline">
+                                                            <span className="capitalize text-xs text-charcoal/70">{size}:</span>
+                                                            <span className="font-bold text-terracotta">{price}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            {/* Half Topping */}
+                                            <div>
+                                                <span className="font-semibold text-charcoal">Half Topping:</span>
+                                                <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
+                                                    {Object.entries(item.toppings.half).map(([size, price]) => (
+                                                        <div key={size} className="flex gap-1 items-baseline">
+                                                            <span className="capitalize text-xs text-charcoal/70">{size}:</span>
+                                                            <span className="font-bold text-terracotta">{price}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {/* Renderizar precios de SPECIALTY_PIZZAS (si no tiene 'sizes') */}
+                        {!item.sizes && item.prices && Object.keys(item.prices).length > 0 && (
+                            <div className="mt-4 pt-4 border-t border-charcoal/5">
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    {Object.entries(item.prices).map(([size, price]) => (
+                                        <div key={size} className="flex flex-col items-start">
+                                            <span className="text-sm font-serif text-terracotta/70">{size}</span>
+                                            <span className="text-base font-bold text-terracotta">{price}</span>
                                         </div>
                                     ))}
                                 </div>

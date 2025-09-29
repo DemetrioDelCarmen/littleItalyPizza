@@ -3,120 +3,199 @@ export const PIZZAS = [
     {
         name: "Cheese Pizza",
         description: "Classic cheese or create your own pizza.",
-        smallPrice: "$9.75",
+        sizes: [
+            { name: 'Small', dimension: '10"', price: '$9.75' },
+            { name: 'Medium', dimension: '14"', price: '$12.75' },
+            { name: 'Large', dimension: '16"', price: '$13.75' },
+            { name: 'Sicilian', dimension: '16" x 16"', price: '$16.00' }
+        ],
         tag: "Best seller",
         image: "/images/pizza/cheese-pizza.jpg",
-        priceMed: "$12.75",
-        priceLarge: "$13.75",
-        sicilian: "$16"
+        toppings: {
+            extra: {
+                small: "$1.50",
+                medium: "$2.00",
+                large: "$2.75",
+                sicilian: "$3.75"
+            },
+            half: {
+                small: "$1.00",
+                medium: "$1.50",
+                large: "$1.75",
+                sicilian: "$2.50"
+            },
+            list: "Pepperoni, sausage, ham, bacon, ground beef, meatballs, genoa salami, mushroom, onions, green peppers, broccoli, spinach, black olives, sweet peppers, hot peppers, jalapeño peppers, pineapple, anchovies, fresh tomatoes."
+        }
     }
 ];
-
 export const SPECIALTY_PIZZAS = [
     {
         name: "House Special Pizza",
         description: "Pepperoni, sausage, ham, bacon, meatballs, mushrooms, onions, green peppers and extra cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$24.00",
+            "Sicilian": "$27.00"
+        },
         image: "/images/pizza/house-special.jpg"
     },
     {
         name: "Meat Lover Pizza",
         description: "Ham, pepperoni, salami, sausage, bacon, and extra cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$24.00",
+            "Sicilian": "$27.00"
+        },
         tag: "Best seller",
         image: "/images/pizza/meat-lover.jpg"
     },
     {
         name: "Deep Dish Meat Lovers Pizza",
         description: "Ham, pepperoni, salami, sausage, bacon, and extra cheese.",
-        price: "$20.99",
+        prices: {
+            "One Size Only": "$20.99"
+        },
         image: "/images/pizza/deep-dish-meat-lover.jpg"
     },
     {
         name: "Stuffed Meat Lover Pizza",
         description: "Ham, pepperoni, salami, sausage, bacon, ground beef and extra cheese.",
-        price: "$24.00",
+        prices: {
+            "One Size Only": "$24.00"
+        },
         image: "/images/pizza/stuffed-meat-lover.jpg"
     },
     {
         name: "Veggie Pizza",
         description: "Broccoli, mushroom, fresh tomato, green peppers, onions, and extra cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$19.99"
+        },
         image: "/images/pizza/veggie-pizza.jpg"
     },
     {
         name: "White Pizza",
         description: "Fresh garlic in extra virgin olive oil, ricotta, mozzarella cheese, and shaved parmesan cheese.",
-        price: "$10.50",
+        prices: {
+            "Sm": "$10.50",
+            "Med": "$15.50",
+            "Lg": "$18.50"
+        },
         tag: "Best seller",
         image: "/images/pizza/white-pizza.jpg"
     },
     {
         name: "Buffalo Chicken Pizza",
         description: "Grilled chicken tossed in our buffalo sauce and mozzarella cheese. Your choice of ranch or blue cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/buffalo-chicken.jpg"
     },
     {
         name: "Chicken Alfredo Pizza",
         description: "Chicken breast strips sauteed with Alfredo sauce topped with mozzarella cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/chicken-alfredo.jpg"
     },
     {
         name: "Chicken Pesto Pizza",
         description: "Chicken breast strips sauteed with our pesto sauce topped with mozzarella cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/chicken-pesto.jpg"
     },
     {
         name: "Italian Pizza",
-        price: "$20.99",
+        prices: {
+            "Sm": "$20.99",
+            "Med": "$22.99",
+            "Lg": "$29.99"
+        },
         image: "/images/pizza/italian-pizza.jpg"
     },
     {
         name: "Chicken Fajita Pizza",
         description: "Marinated chicken strips, homemade pizza sauce, red onions, green peppers, and mozzarella cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$21.00",
+            "Lg": "$24.00"
+        },
         image: "/images/pizza/chicken-fajita.jpg"
     },
     {
         name: "Steak Pizza",
         description: "Chopped sirloin steak grilled with pizza sauce and topped with mozzarella cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/steak-pizza.jpg"
     },
     {
         name: "Mexican Pizza",
         description: "Taco seasoned ground beef, salsa, mozzarella cheese, and fresh tomato.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/mexican-pizza.jpg"
     },
     {
         name: "Margharita Pizza",
         description: "Homemade pizza sauce, fresh mozzarella cheese, fresh basil, and extra virgin olive oil.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/margherita-pizza.jpg"
     },
     {
         name: "Chicken Ranch Pizza",
         description: "Grilled chicken tossed in our ranch sauce and mozzarella cheese. Your choice of BBQ or buffalo sauce.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$17.89",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/chicken-ranch.jpg"
     },
     {
         name: "Gluten Free Pizza",
-        price: "$14.99",
+        prices: {
+            "One Size Only": "$14.99"
+        },
         image: "/images/pizza/gluten-free.jpg"
     },
     {
         name: "Chicken BBQ Pizza",
         description: "Grilled chicken tossed in our BBQ sauce and mozzarella cheese. Your choice of ranch or blue cheese.",
-        price: "$14.99",
+        prices: {
+            "Sm": "$14.99",
+            "Med": "$18.99",
+            "Lg": "$20.99"
+        },
         image: "/images/pizza/chicken-bbq.jpg"
     }
 ];
-
 export const APPETIZERS = [
     {
         name: "French Fries",
@@ -336,64 +415,143 @@ export const WINGS = [
         image: "/images/wings/boneless-wings.jpg"
     }
 ];
-
 export const CALZONES_STROMBOLIS = [
     {
         name: "Regular Stromboli",
         description: "Ham, salami, pepperoni, mozzarella cheese, and our homemade pizza sauce.",
-        price: "$15.99",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
         image: "/images/calzones/regular-stromboli.jpg"
     },
     {
-        name: "Buffalo Chicken Stromboli",
-        description: "Chopped marinated chicken breast, mozzarella cheese, and hot sauce with your choice of ranch or blue cheese.",
-        price: "$15.99",
-        image: "/images/calzones/buffalo-chicken-stromboli.jpg"
-    },
-    {
-        name: "Meat Lover Stromboli",
+        name: "Meat Lovers Stromboli",
         description: "Ham, salami, pepperoni, bacon, ground beef, sausage, cheese, and our homemade pizza sauce.",
-        price: "$15.99",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
         image: "/images/calzones/meat-lover-stromboli.jpg"
-    },
-    {
-        name: "Chicken Stromboli",
-        description: "Chopped marinated chicken breast, mozzarella cheese, and homemade sauce.",
-        price: "$15.99",
-        image: "/images/calzones/chicken-stromboli.jpg"
     },
     {
         name: "Special Stromboli",
         description: "Ham, salami, pepperoni, bacon, green peppers, mushrooms, onions, extra cheese, and our homemade pizza sauce.",
-        price: "$15.99",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
         image: "/images/calzones/special-stromboli.jpg"
-    },
-    {
-        name: "Calzone",
-        description: "Ham, ricotta, and mozzarella cheese.",
-        price: "$15.99",
-        image: "/images/calzones/calzone.jpg"
     },
     {
         name: "Veggie Stromboli",
         description: "Broccoli, spinach, mushrooms, green peppers, onions, fresh tomato, and our homemade pizza sauce.",
-        price: "$15.99",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
         image: "/images/calzones/veggie-stromboli.jpg"
-    },
-    {
-        name: "Spinach Calzone",
-        description: "Ricotta cheese, mozzarella cheese, fresh spinach, parmesan cheese.",
-        price: "$15.99",
-        image: "/images/calzones/spinach-calzone.jpg"
     },
     {
         name: "Steak Stromboli",
         description: "Chopped steak, mozzarella cheese, and our homemade pizza sauce.",
-        price: "$15.99",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
         image: "/images/calzones/steak-stromboli.jpg"
+    },
+    {
+        name: "Buffalo Chicken Stromboli",
+        description: "Chopped marinated chicken breast, mozzarella cheese, and hot sauce with your choice of ranch or blue cheese.",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
+        image: "/images/calzones/buffalo-chicken-stromboli.jpg"
+    },
+    {
+        name: "Chicken Stromboli",
+        description: "Chopped marinated chicken breast, mozzarella cheese, and homemade sauce.",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
+        image: "/images/calzones/chicken-stromboli.jpg"
+    },
+    {
+        name: "Calzone",
+        description: "Ham, ricotta, and mozzarella cheese.",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
+        image: "/images/calzones/calzone.jpg"
+    },
+    {
+        name: "Spinach Calzone",
+        description: "Ricotta cheese, mozzarella cheese, fresh spinach, parmesan cheese.",
+        prices: {
+            "Small": "$15.99",
+            "Medium": "$18.99",
+            "Large": "$20.99"
+        },
+        sauce: {
+            "Small": "$1.25",
+            "Medium": "$2.50",
+            "Large": "$2.50"
+        },
+        image: "/images/calzones/spinach-calzone.jpg"
     }
 ];
-
 export const SANDWICHES = [
     {
         name: "Cheeseburger Sandwich",

@@ -1,18 +1,51 @@
-const MenuItem = ({ name, description, price, tag }) => {
+// components/MenuItem.jsx
+import Image from 'next/image';
+
+const MenuItem = ({ name, description, sizes, toppings, tag, image }) => {
     return (
-        <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden group">
-            <div className="p-6">
-                {tag && (
-                    <span className="bg-green-600 mb-12 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">
-                        {tag}
-                    </span>
-                )}
-                <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-700 transition-colors duration-300">{name}</h3>
-                    <span className="text-2xl font-extrabold text-red-600 ml-4">{price}</span>
-                </div>
-                {description && <p className="text-gray-600 text-sm">{description}</p>}
+        <div className="bg-white rounded-xl shadow-lg p-6">
+            <h3 className="text-xl font-bold">{name}</h3>
+            <p className="text-gray-600 mb-4">{description}</p>
+
+            {/* Displaying sizes and prices */}
+            <div className="flex justify-between items-center mb-4 border-b pb-2">
+                {sizes.map((size, index) => (
+                    <div key={index} className="text-center">
+                        <span className="text-sm font-semibold">{size.name}</span>
+                        <p className="text-lg font-bold">{size.price}</p>
+                        <span className="text-xs text-gray-500">{size.dimension}</span>
+                    </div>
+                ))}
             </div>
+
+            {/* Displaying toppings information */}
+            {toppings && (
+                <div className="mt-4 text-sm">
+                    <p className="font-semibold text-gray-700">Extra Toppings:</p>
+                    <div className="grid grid-cols-2 gap-2 mt-1">
+                        {Object.entries(toppings.extra).map(([size, price]) => (
+                            <div key={size} className="flex justify-between">
+                                <span className="capitalize">{size}:</span>
+                                <span className="font-bold">{price}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="font-semibold text-gray-700 mt-4">Half Toppings:</p>
+                    <div className="grid grid-cols-2 gap-2 mt-1">
+                        {Object.entries(toppings.half).map(([size, price]) => (
+                            <div key={size} className="flex justify-between">
+                                <span className="capitalize">{size}:</span>
+                                <span className="font-bold">{price}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="text-gray-500 mt-4">
+                        Toppings: {toppings.list}
+                    </p>
+                </div>
+            )}
         </div>
     );
 };
